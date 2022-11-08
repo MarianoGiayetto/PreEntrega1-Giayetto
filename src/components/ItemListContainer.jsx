@@ -147,12 +147,11 @@ export default function ItemListContainer() {
     }
   }, [categoryId]);
 
-  /*   const onAdd = (cantidad) => {
+    const onAdd = (cantidad) => {
     console.log(`Agregaste ${cantidad} unidades`);
-  }; */
+  };
   return (
     <div>
-      {/* <ItemCount initial={1} stock={4} onAdd={onAdd} /> */}
       {!datos.length && "Loading..."}
       <div className="ItemListContainer">
         <ItemList datos={datos} />
