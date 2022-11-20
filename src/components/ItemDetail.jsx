@@ -1,23 +1,43 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import "../hojas_de_estilo/CardDetail.css";
+import "../stylesheets/CardDetail.css";
 import ItemCount from "./ItemCount";
-
-const onAdd = (cantidad) => {
-  console.log(`Agregaste ${cantidad} unidades`);
-};
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { cartContext } from "./CartContextComponent";
 
 export default function ItemDetail({ data }) {
+  const [goToCart, setGoToCart] = useState(false);
+
+  const { addItem } = useContext(cartContext);
+
+  const onAdd = (quantity) => {
+    setGoToCart(true);
+    addItem(data, quantity);
+  };
+
   return (
-    <Card className="mx-auto card__detail">
-      <Card.Img variant="top" src={`.${data.imagen}`} />
-      <Card.Text>{data.titulo}</Card.Text>
-      <Card.Text>${data.precio}</Card.Text>
-      <Card.Text>{data.descripcion}</Card.Text>
-      <Card.Text>Unidades en stock: {data.stock}</Card.Text>
-      <ItemCount initial={1} stock={data.stock} onAdd={onAdd} />
-      <Link to={`/`}>Volver</Link>
-    </Card>
+    <Container className="card__detail">
+      <Row>
+        <Col>
+          <Card.Title>{data.title}</Card.Title>
+          <img className="card__detail__imagen" src={data.image} />
+        </Col>
+        <Col
+          style={{ marginTop: "5%", textAlign: "justify", textAlign: "center" }}>
+          <Card.Text>{data.description}</Card.Text>
+          <Card.Text>${data.price}</Card.Text>
+          {goToCart ? (
+            <Link to="/Cart">Finalizar compra</Link>) : (<ItemCount stockProduct={data.stock} onAdd={onAdd} />)}
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Link to={`/`}>Volver</Link>
+        </Col>
+      </Row>
+    </Container>
   );
 }

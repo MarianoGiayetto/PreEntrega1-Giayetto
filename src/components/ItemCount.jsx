@@ -1,38 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import Button from "react-bootstrap/Button";
+import "../stylesheets/ButtonsItems.css";
 
-export default function ItemCount({ initial, stock, onAdd }) {
-  const [counter, setCounter] = useState(initial);
+export default function ItemCount({ stockProduct, onAdd }) {
+   
+  const [counter, setCounter] = useState(1);   
 
-  const decrementar = () => {
+  const Decrement = () => {
     setCounter(counter - 1);
   };
 
-  const incrementar = () => {
-    setCounter(counter + 1);
+  const Increment = () => {
+    setCounter(counter + 1); 
   };
 
   return (
-    <div className="botones_Items">
-      <Button variant="primary" disabled={counter <= 1} onClick={decrementar}>
-        -
-      </Button>
+    <div>
+      <p>Stock disponible: {stockProduct}</p>
+      <Button className="botones_Items" variant="primary" disabled={counter <= 1} onClick={Decrement}> - </Button>
       <span>{counter}</span>
-      <Button
-        variant="primary"
-        disabled={counter >= stock}
-        onClick={incrementar}
-      >
-        +
-      </Button>
+      <Button className="botones_Items" variant="primary" disabled={counter >= stockProduct} onClick={Increment}> + </Button>
       <div>
-        <Button
-          variant="primary"
-          disabled={stock <= 0}
-          onClick={() => onAdd(counter)}
-        >
-          Agregar al carrito
-        </Button>
+        <Button className="botones_Items" variant="primary" disabled={stockProduct <= 0} onClick={() => onAdd(counter)}>Agregar al carrito</Button>
       </div>
     </div>
   );

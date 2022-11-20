@@ -1,7 +1,7 @@
 import React from "react";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import '../hojas_de_estilo/Footer.css'
+import '../stylesheets/Footer.css'
 
 export default function Footer(){
     return(

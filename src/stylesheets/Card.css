@@ -1,0 +1,21 @@
+ .card{
+    width: 18em;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 30% )
+}
+
+.card__imagen{
+    width: 20rem;
+    margin: 0 auto;
+}
+
+.card__link{
+    text-decoration:none;
+    transition: all 0.3s ease-out;    
+}
+
+.card__link:hover{
+   
+    color:crimson;
+} 

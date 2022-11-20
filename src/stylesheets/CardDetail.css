@@ -1,9 +1,16 @@
 .card__detail{
     width: 18rem;
-    margin: 0 auto;    
+    margin: 30px 0px;
+    padding: 50px;  
     color: black;
+    
     background-color: white;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0 3px 13px 1px rgb(0 0 0 / 20% )
+}
+
+.card__detail__imagen{
+    width: 80%;
+    padding: 20px;
 }

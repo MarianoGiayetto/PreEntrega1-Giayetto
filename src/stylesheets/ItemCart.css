@@ -1,0 +1,15 @@
+.itemCart{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 30% );
+    font-size: 1.2rem;
+}
+
+.itemCart__imagen{
+    width: 10%;
+    
+}
+
