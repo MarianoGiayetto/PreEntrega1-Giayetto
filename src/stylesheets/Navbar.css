@@ -1,10 +1,9 @@
-.navbar{
-    gap: 20px;
-    background-color: gray;
-    
-}
+ .navbar{
+    background-color: rgb(62, 62, 62);
+    font-size:1.2rem;
+}   
 
-.navbar-link{
+.navbar__link{
     list-style: none;
     text-decoration: none;
     color: white;

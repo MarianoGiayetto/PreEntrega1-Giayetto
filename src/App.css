@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -6,6 +7,12 @@
 
 .App {
   text-align: center;
-  background-color: gainsboro;
+  background-color:rgb(222, 221, 207);
+  font-family: 'Prompt', sans-serif;
+  min-height: 100vh; 
+ 
+  display: flex;
+  flex-direction: column;
+  
 }
 

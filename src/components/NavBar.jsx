@@ -2,35 +2,54 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "../stylesheets/Navbar.css";
 import CartWidget from "./CartWidget";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
 export default function NavBar() {
   return (
-    <div className="navbar">
-      <NavLink to="/">
-        <img
-          src="../Logo_Detail_Garage_invertido.png"
-          width="100"
-          height="110"
-          className="d-inline-block align-top"
-          alt="Logo"
-        />
-      </NavLink>
-      <NavLink className="navbar-link" to="/category/shampoos">
-        Shampoos
-      </NavLink>
-      <NavLink className="navbar-link" to="/category/ceras">
-        Ceras
-      </NavLink>
-      <NavLink className="navbar-link" to="/category/cepillos">
-        Cepillos
-      </NavLink>
-      <NavLink className="navbar-link" to="/category/microfibras">
-        Microfibras
-      </NavLink>
-      <NavLink className="navbar-link" to="/cart">
-        {CartWidget}
-      </NavLink>
-
-    </div>
+    <Navbar bg="dark" expand="lg">
+      <Container fluid>
+        <Navbar.Brand>
+          <NavLink to="/">
+            <img
+              src="../Logo_Detail_Garage_invertido.png"
+              width="130"
+              height="140"
+              className="d-inline-block align-top"
+              alt="Logo"
+            />
+          </NavLink>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link>
+              <NavLink className="navbar__link" to="/category/shampoos">
+                Shampoos
+              </NavLink>
+            </Nav.Link>
+            <Nav.Link>
+              <NavLink className="navbar__link" to="/category/ceras">
+                Ceras
+              </NavLink>
+            </Nav.Link>
+            <Nav.Link>
+              <NavLink className="navbar__link" to="/category/cepillos">
+                Cepillos
+              </NavLink>
+            </Nav.Link>
+            <Nav.Link>
+              <NavLink className="navbar__link" to="/category/microfibras">
+                Microfibras
+              </NavLink>
+            </Nav.Link>
+          </Nav>
+          <NavLink className="navbar__link" to="/cart">
+            {CartWidget}
+          </NavLink>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }

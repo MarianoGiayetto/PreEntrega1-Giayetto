@@ -9,7 +9,7 @@ export default function CartWidget() {
   
   return (
     <div>
-      <Badge style={{marginRight:10}} bg="primary">{totalQuantity() || ''}</Badge>
+      <Badge style={{marginRight:10, fontSize:15}} bg="primary" text="light">{totalQuantity() || ''}</Badge>
       <BsCart4 style={{ marginRight: 20, width: 40, height: 40, color: "#ccc" }} />
     </div>
   );

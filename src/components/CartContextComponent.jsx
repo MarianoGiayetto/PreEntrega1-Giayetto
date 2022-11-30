@@ -1,15 +1,17 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const cartContext = createContext([]);
 
 export default function CartContextComponent({ children }) {
-  
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("Cart")) || []);
 
   const addItem = (item, quantity) => {
     if (isInCart(item.id)) {
-      setCart(cart.map((product) => {
-          return product.id === item.id ? { ...product, quantity: product.quantity + quantity } : product;
+      setCart(
+        cart.map((product) => {
+          return product.id === item.id
+            ? { ...product, quantity: product.quantity + quantity }
+            : product;
         })
       );
     } else {
@@ -17,7 +19,7 @@ export default function CartContextComponent({ children }) {
     }
   };
 
-  const clear = () => setCart([]);
+  const clearCart = () => setCart([]);
 
   const isInCart = (id) =>
     cart.find((product) => product.id === id) ? true : false;
@@ -30,20 +32,24 @@ export default function CartContextComponent({ children }) {
 
   const totalQuantity = () =>
     cart.reduce(
-      (acumulador, actualProduct) => acumulador + actualProduct.quantity,0);
-
+      (acumulador, actualProduct) => acumulador + actualProduct.quantity,
+      0
+    );
+  
+  useEffect(() => {
+    localStorage.setItem("Cart", JSON.stringify(cart))
+  }, [cart])
+  
   return (
-    <cartContext.Provider
-      value={{
-        clear,
+    <cartContext.Provider value={{
+        clearCart,
         isInCart,
         removeItem,
         addItem,
         totalPrice,
         totalQuantity,
         cart,
-      }}>
-      {children}
+      }}>{children}
     </cartContext.Provider>
   );
 }

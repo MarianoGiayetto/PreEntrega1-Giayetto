@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { cartContext } from "./CartContextComponent";
+import "../stylesheets/Card.css";
 
 export default function ItemDetail({ data }) {
   const [goToCart, setGoToCart] = useState(false);
@@ -26,16 +27,24 @@ export default function ItemDetail({ data }) {
           <img className="card__detail__imagen" src={data.image} />
         </Col>
         <Col
-          style={{ marginTop: "5%", textAlign: "justify", textAlign: "center" }}>
+          style={{ marginTop: "5%", textAlign: "justify", textAlign: "center" }}
+        >
           <Card.Text>{data.description}</Card.Text>
           <Card.Text>${data.price}</Card.Text>
           {goToCart ? (
-            <Link to="/Cart">Finalizar compra</Link>) : (<ItemCount stockProduct={data.stock} onAdd={onAdd} />)}
+            <Link className="boton__link" to="/Cart">
+              Terminar compra
+            </Link>
+          ) : (
+            <ItemCount stockProduct={data.stock} onAdd={onAdd} />
+          )}
         </Col>
       </Row>
       <Row>
         <Col>
-          <Link to={`/`}>Volver</Link>
+          <Link className="boton__link" to={`/`}>
+            Volver
+          </Link>
         </Col>
       </Row>
     </Container>

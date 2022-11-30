@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import "../stylesheets/ItemListContainer.css";
 import { useParams } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner';
 import {getFirestore,collection,getDocs,query,where} from "firebase/firestore";
 
 export default function ItemListContainer() {
   const [data, setData] = useState([]);
-
   const { categoryId } = useParams();
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function ItemListContainer() {
 
   return (
     <div>
-      {!data.length && "Loading..."}
+      {!data.length && <Spinner style={{margin:"10px"}} animation="border" variant="primary"/>}
       <div className="ItemListContainer">
         <ItemList data={data} />
       </div>

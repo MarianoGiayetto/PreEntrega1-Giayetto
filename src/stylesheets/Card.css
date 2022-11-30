@@ -1,21 +1,18 @@
- .card{
-    width: 18em;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 30% )
+.card {
+  box-shadow: 0 3px 13px 1px rgb(0 0 0 / 30%);
 }
 
-.card__imagen{
-    width: 20rem;
-    margin: 0 auto;
+.boton__link {
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+  background-color: #0d6efd;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  padding: 2px;
 }
 
-.card__link{
-    text-decoration:none;
-    transition: all 0.3s ease-out;    
+.boton__link:hover {
+  border: #0d6efd solid 1px;
+  background-color: white;
 }
-
-.card__link:hover{
-   
-    color:crimson;
-} 

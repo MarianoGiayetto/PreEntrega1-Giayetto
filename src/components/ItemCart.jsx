@@ -1,20 +1,24 @@
 import React, { useContext } from "react";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "../stylesheets/Card.css";
 import { cartContext } from "./CartContextComponent";
-import Button from "react-bootstrap/Button";
-import '../stylesheets/ItemCart.css'
-
 
 export default function ItemCart({ product }) {
   const { removeItem } = useContext(cartContext);
 
   return (
-    <div className="itemCart">
-      <img className="itemCart__imagen" src={product.image} alt="imagen_card"/>
-      <h4>{product.title}</h4>      
-      <p className="itemCart__precio">${product.price}</p>
-      <p className="itemCart__cantidad">Cantidad: {product.quantity}</p>
-      <p className="itemCart__subtotal">Subtotal: ${product.quantity * product.price}</p>
-      <Button onClick={() => removeItem(product.id)}>Eliminar</Button>
-    </div>
+    <Card border="dark"style={{width:'60%',margin:'20px auto', alignItems:'center' }} >
+      <Card.Body>
+      <Card.Img style={{width:'60%'}} src={product.image} alt="imagen_card"/>
+      
+      <Card.Title>{product.title}</Card.Title>      
+      <Card.Text >${product.price}</Card.Text>
+      <Card.Text >Cantidad: {product.quantity}</Card.Text>
+      <Card.Text >Subtotal: ${product.quantity * product.price}</Card.Text>
+      </Card.Body>
+      
+      <Link className="boton__link" onClick={() => removeItem(product.id)}>Eliminar</Link >
+    </Card>
   );
 }

@@ -1,9 +1,7 @@
 .ItemListContainer{
     margin: 10px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    font-size: 1.5em;
-    
+    justify-content:center;
+    gap: 20px;    
 }
