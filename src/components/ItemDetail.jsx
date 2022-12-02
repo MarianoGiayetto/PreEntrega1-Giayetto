@@ -1,13 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom";
-import "../stylesheets/CardDetail.css";
-import ItemCount from "./ItemCount";
+import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { cartContext } from "./CartContextComponent";
+import { Link } from "react-router-dom";
 import "../stylesheets/Card.css";
+import "../stylesheets/CardDetail.css";
+import { cartContext } from "./CartContextComponent";
+import ItemCount from "./ItemCount";
 
 export default function ItemDetail({ data }) {
   const [goToCart, setGoToCart] = useState(false);
