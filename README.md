@@ -11,6 +11,7 @@ El objetivo de este proyecto es crear una APP en React JS simulando un E-Commerc
 - Cart Widget contador de productos.
 - Shop cart.
 - Diseño responsive.
+- Persistencia del Cart en LocalStorage.
 - Item Detail.
 - Item Quantity Selector con actualización de stock.
 - Checkout con validación de datos y detalle de compra.
