@@ -109,7 +109,7 @@ export default function Checkout() {
       {finPedido ? (
         <div style={{ margin: "50px auto" }}>
           <h2>{`Muchas gracias por su compra ${name}!!!`}</h2>
-          <h2>{`La orden de su pedido es: ${codeOrder}`}</h2>
+          <h2>{`El ID de su pedido es: ${codeOrder}`}</h2>
           <Link className="boton__link" to="/">
             Volver a la tienda
           </Link>
