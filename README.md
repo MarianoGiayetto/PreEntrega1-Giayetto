@@ -10,7 +10,7 @@ El objetivo de este proyecto es crear una APP en React JS simulando un E-Commerc
 - Shop cart.
 - Diseño responsive.
 - Item Detail.
-- Item Quantity Selector.
+- Item Quantity Selector con actualización de stock.
 - Checkout con validación de datos y detalle de compra.
 
 ## Skills
