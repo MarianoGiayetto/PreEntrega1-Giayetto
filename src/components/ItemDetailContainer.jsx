@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import ItemDetail from "./ItemDetail";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer() {
   const [data, setData] = useState({});
@@ -13,7 +13,6 @@ export default function ItemDetailContainer() {
     const queryDoc = doc(db, "products", itemId);
     getDoc(queryDoc).then((res) => setData({ id: res.id, ...res.data() }));
   }, [itemId]);
-
   return (
     <>
       <ItemDetail data={data} />

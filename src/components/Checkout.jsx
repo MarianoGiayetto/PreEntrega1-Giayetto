@@ -18,9 +18,7 @@ import "../stylesheets/Card.css";
 
 export default function Checkout() {
   const { cart, totalPrice, clearCart } = useContext(cartContext);
-  
   const [finPedido, setFinPedido] = useState(false);
-
   const [codeOrder, setCodeOrder] = useState("");
 
   const [form, setForm] = useState({});
@@ -38,34 +36,39 @@ export default function Checkout() {
   const findFormErrors = () => {
     const { name, lastName, email1, email2 } = form;
     const newErrors = {};
+
     // name errors
     if (!name || name === "") newErrors.name = "Este campo es obligatorio.";
-    else if (name.length < 3) newErrors.name = "El nombre es muy corto.";
-    else if (name.length > 30) newErrors.name = "El nombre es muy largo.";
     else if (!/^[a-zA-Z]+$/.test(name))
       newErrors.name = "Solo se admiten letras para este campo";
+    else if (name.length > 30) newErrors.name = "El nombre es muy largo.";
+    else if (name.length < 3) newErrors.name = "El nombre es muy corto.";
+
     //lastName errors
     if (!lastName || lastName === "")
       newErrors.lastName = "Este campo es obligatorio.";
-    else if (lastName.length < 3)
-      newErrors.lastName = "El apellido es muy corto.";
-    else if (lastName.length > 30)
-      newErrors.lastName = "El apellido es muy largo.";
     else if (!/^[a-zA-Z]+$/.test(lastName))
       newErrors.lastName = "Solo se admiten letras para este campo";
+    else if (lastName.length > 30)
+      newErrors.lastName = "El apellido es muy largo.";
+    else if (lastName.length < 3)
+      newErrors.lastName = "El apellido es muy corto.";
+
     // email1 errors
     if (!email1 || email1 === "")
       newErrors.email1 = "Este campo es obligatorio.";
     else if (!/\S+@\S+\.\S+/.test(email1))
       newErrors.email1 = "La dirección de correo ingresada es inválida";
+
     // email2 errors
     if (!email2 || email2 === "")
       newErrors.email2 = "Este campo es obligatorio.";
     else if (!/\S+@\S+\.\S+/.test(email2))
       newErrors.email2 = "La dirección de correo ingresada es inválida";
-    else if (email1 !== email2) newErrors.email2 = "Los mails no coinciden.";
+    else if (email1 !== email2) newErrors.email2 = "Los mails deben coincidir.";
     return newErrors;
   };
+
   const handleClick = (e) => {
     e.preventDefault();
     setFinPedido(false);
@@ -97,7 +100,6 @@ export default function Checkout() {
         updateDoc(documento, { stock: increment(-item.quantity) });
         setFinPedido(true);
         clearCart();
-        console.log(order);
       });
     });
   };
@@ -197,7 +199,7 @@ export default function Checkout() {
 
             <Row className="m-3 justify-content-md-center">
               <Form.Group as={Col} lg="6" controlId="formGridEmail2">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Repetir Email</Form.Label>
                 <Form.Control
                   required
                   isInvalid={!!errors.email2}
@@ -213,7 +215,8 @@ export default function Checkout() {
             <Button
               type="submit"
               className="boton__Button"
-              onClick={handleClick}>
+              onClick={handleClick}
+            >
               Generar Orden
             </Button>
           </Form>

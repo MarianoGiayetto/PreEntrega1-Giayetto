@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
-import ItemList from "./ItemList";
-import "../stylesheets/ItemListContainer.css";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import Spinner from "react-bootstrap/Spinner";
 import { useParams } from "react-router-dom";
-import Spinner from 'react-bootstrap/Spinner';
-import {getFirestore,collection,getDocs,query,where} from "firebase/firestore";
-
+import "../stylesheets/ItemListContainer.css";
+import ItemList from "./ItemList";
 export default function ItemListContainer() {
   const [data, setData] = useState([]);
   const { categoryId } = useParams();
@@ -33,7 +38,13 @@ export default function ItemListContainer() {
 
   return (
     <div>
-      {!data.length && <Spinner style={{margin:"10px"}} animation="border" variant="primary"/>}
+      {!data.length && (
+        <Spinner
+          style={{ margin: "10px" }}
+          animation="border"
+          variant="primary"
+        />
+      )}
       <div className="ItemListContainer">
         <ItemList data={data} />
       </div>

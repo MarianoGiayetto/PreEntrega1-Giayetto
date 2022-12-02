@@ -1,11 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import "../stylesheets/Navbar.css";
-import CartWidget from "./CartWidget";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
+import { NavLink } from "react-router-dom";
+import "../stylesheets/Navbar.css";
+import CartWidget from "./CartWidget";
 export default function NavBar() {
   return (
     <Navbar bg="dark" expand="lg">

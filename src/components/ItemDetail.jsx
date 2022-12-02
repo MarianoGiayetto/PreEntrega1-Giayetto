@@ -11,9 +11,7 @@ import "../stylesheets/Card.css";
 
 export default function ItemDetail({ data }) {
   const [goToCart, setGoToCart] = useState(false);
-
   const { addItem } = useContext(cartContext);
-
   const onAdd = (quantity) => {
     setGoToCart(true);
     addItem(data, quantity);

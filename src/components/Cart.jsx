@@ -5,7 +5,7 @@ import { cartContext } from "./CartContextComponent";
 import ItemCart from "./ItemCart";
 
 export default function Cart() {
-  const { cart} = useContext(cartContext);
+  const { cart } = useContext(cartContext);
 
   if (cart.length === 0) {
     return (
@@ -30,5 +30,4 @@ export default function Cart() {
       </Link>
     </div>
   );
-};
-
+}

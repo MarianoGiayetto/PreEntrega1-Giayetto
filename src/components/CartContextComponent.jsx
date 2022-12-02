@@ -1,9 +1,10 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const cartContext = createContext([]);
 
 export default function CartContextComponent({ children }) {
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("Cart")) || []);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("Cart")) || []);
 
   const addItem = (item, quantity) => {
     if (isInCart(item.id)) {
@@ -35,13 +36,14 @@ export default function CartContextComponent({ children }) {
       (acumulador, actualProduct) => acumulador + actualProduct.quantity,
       0
     );
-  
+
   useEffect(() => {
-    localStorage.setItem("Cart", JSON.stringify(cart))
-  }, [cart])
-  
+    localStorage.setItem("Cart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
-    <cartContext.Provider value={{
+    <cartContext.Provider
+      value={{
         clearCart,
         isInCart,
         removeItem,
@@ -49,7 +51,9 @@ export default function CartContextComponent({ children }) {
         totalPrice,
         totalQuantity,
         cart,
-      }}>{children}
+      }}
+    >
+      {children}
     </cartContext.Provider>
   );
 }

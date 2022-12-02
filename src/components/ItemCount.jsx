@@ -4,15 +4,12 @@ import "../stylesheets/ButtonsItems.css";
 
 export default function ItemCount({ stockProduct, onAdd }) {
   const [counter, setCounter] = useState(1);
-
   const handleDecrement = () => {
     setCounter(counter - 1);
   };
-
   const handleIncrement = () => {
     setCounter(counter + 1);
   };
-
   return (
     <div>
       <p>Stock disponible: {stockProduct}</p>
