@@ -7,7 +7,7 @@ import "../stylesheets/Navbar.css";
 import CartWidget from "./CartWidget";
 export default function NavBar() {
   return (
-    <Navbar bg="dark" expand="lg">
+    <Navbar variant="dark" bg="dark" expand="lg">
       <Container fluid>
         <Navbar.Brand>
           <NavLink to="/">
